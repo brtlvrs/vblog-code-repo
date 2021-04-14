@@ -1,7 +1,8 @@
-# code-repository
+# vblog-code-repo
 
-Code repository is a toolbox containing scripts and templates.
+vblog-code-repo is a toolbox containing scripts and templates.
 It contians the following items
+# THIS REPO IS UNDER CONSTRUCTION
 
 |item| description|
 |---|---|
