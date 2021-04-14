@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			/* Header and footer style */
+			header, footer {
+				padding: 1em;
+				color: white;
+				background-color: #F68428;  /* CS house style */
+				clear: left;
+				text-align: center;
+				width: 100%;
+			}
+			/* Content style */
+			div.container {
+				width: 100%;
+				border: 1px solid gray;
+				background: #F6F6F6;  /* CS house style */
+			}
+			/* Columns stule info */
+			div.Columns {
+				column-count: 3;
+				column-width: 33%;
+				column-gap: 10px;
+				break-inside: avoid-column;
+				-webkit-column-count: 3; /* Chrome, Safari, Opera */
+				-webkit-column-width: 33%; /* Chrome, Safari, Opera */
+				-webkit-column-gap: 10px;
+				-webkit-column-break-inside: avoid;
+				-moz-column-width: 33%; /* Firefox */
+				-moz-column-count: 3; /* Firefox */
+				-moz-column-gap: 10px;
+				page-break-inside: avoid; 
+			}
+			/*block for group of URL links */
+			div.info {
+				display: inline-block;
+				vertical-align: top;
+				width: 100%;
+			}
+			header h1 {
+				background-image: url("data:image/jpeg;base64,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");
+				background-size: contain;
+				background-repeat: no-repeat;
+				background-position: left;
+			}
+			/*list symbol*/
+			ul {
+				list-style-type:circle;
+				list-style-image: url("data:image/jpeg;base64,R0lGODlhCwAKAOcFAHyBhIKAhH2ChYOBhX6DhoSChn+Eh4WDh4CFiIaEiIGGiYeFiYKHioOIi4aIhYmHi4SJjIqIjIWKjYuJjYaLjoeMj42Lj4iNkI6MkImOkYyOi5CNkoqPkoyQk5GPk4+Rjo2RlJKQlI6SlZORlY+TlpSSlpCUl5GWmJiVmpKXmZOYmpmXm5SZm5qYnJWanJabnZyanpecnpidn5meoJ+doZqfoaGeopugopyhpJ6jpaajqKClp6GmqaimqqOoq6SprKqorKWqraarrqesr6iusKyuq7CtsaqvsauwsrGvs6yxs62ytLOxta6zta+0trWzt7C1t7G2uLm2u7O4u7S5vLq4vLW6vba7vry6vre8v727v7i+wL+8wbm/wbvAwsG/w7zBw73CxL7DxcHDv7/ExsbDyMDFyMfEycHGycTGw8LHysPIy8TJzMXKzf+8u8nLyMzKzsbMzsrMyc3Lz8fNz/y/wP3AwcnO0NDN0crP0cvQ0v/CxM7QzP/DxczR1M/RztPQ1c3S1f3Gxs7T1tHT0P7Hx9LU0c/V19bT2P/KydTW09HX2f/LytjV2v/My9LY2tnX29TZ2/7PzNXa3NvZ3f/Qzdbb3f/R1N3a39fc3//S1d7b4Njd4Nve2tne4f/U1uDd4trf4v3X19vg4+Hf497h3f7Y2eLg5Nzi5P/Z2uDi3+Ph5d3j5f/a2//b3OXi59/k5+Lk4f3e3eTm4+fl6eHn6f/g3+nm6+Po6+bo5f/i4Ofp5v/j4eTq7Ovo7ejq5+nr6P3m4uzq7ubs7urs6f7n4+3r7+ft7//o5enu8ezu6/Dt8v/q7fHu8+vw8+7w7f/r7u/x7v/t7/Pw9e3y9fzv7+7z9vHz8PTy9vXz9/7x8e/19/P18vb0+P/y8vD2+P/z9Pj1+vT38/L3+f/09fn2+/P4+/b49Pr3/PT5/P339vf59vv4/f749/j69/b7/v/5+Pn7+Pz6/v/6+fr8+f37//f9//v9+v/8+v78///9+//9//n///z/+/7//ISChiH5BAEKAP8ALAAAAAALAAoAAAghAP8JHEiwoMGDAgsg/FdA4cABAwk4JAixIUKLCzNqPBgQADs=");
+			}
+		</style>
+	</head>
+
+	<div class="container">
+
+		<header>
+			<h1>NLVMUG2019 URLs Quicklist</h1>
+		</header>
+
+		<body>
+
+			<div class="Columns">
+                <div class="info">
+                    <h4>VMware Documentatie</h4>
+                    <ul>
+                        <li><a href="https://kb.vmware.com/s/" title="VMware knowledge base"target="_blank">VMware KB</a></li>
+                        <li><a href="https://docs.vmware.com/en/VMware-vSphere/index.html" title="VMware Documentatie"target="_blank">VMware Docs</a></li>
+                    </ul>
+                </div>
+				<div class="info">
+					<h4>vSphere / vRealize</h4>
+					<ul>
+						<li><a href="https://vm-01.nlvmug2019.local\ui" title="vCenter Webconsole (HTML5)"target="_blank">vCenter HTML5 Webconsole</a></li>
+                        <li><a href="https://vm-01.nlvmug2019.local:9443" title="vCenter Webconsole (Flash)"target="_blank">vCenter (flash) Webconsole</a></li>
+                        <br>                       
+						<li><a href="https://10.30.30.31:9443" title="vCenter Webconsole Infra"target="_blank">Infra vCenter</a></li>
+						<br>
+						<li><a href="https://vm-04.nlvmug2019.local:8281/vco/client/client.jnlp" title="vRealize Orchestrator Java client"target="_blank">Orchestrator Client</a></li>
+						<li><a href="https://vm-04.nlvmug2019.local:8283/vco-controlcenter/client" title="vRealize Orchestrator Run en Monitor"target="_blank">Orchestrator Operations Client</a></li>
+						<li><a href="https://vm-04.nlvmug2019.local:8283/vco-controlcenter/config" title="vRealize Orchestrator Control Center"target="_blank">Orchestrator Control Center</a></li>
+						<br>
+						<li><a href="https://vm-05.nlvmug2019.local" title="vRealize Log Insight"target="_blank">vRealize Log Insight</a></li>
+						<br>
+						<li><a href="https://vm-01.nlvmug2019.local" title="vCenter landing page"target="_blank">VCSA landing page</a></li>
+						<li><a href="https://vm-04.nlvmug2019.local:8281/vco/" title="vRealize Orchestrator landing page"target="_blank">vRealize Orchestrator landing page</a></li>
+						<br>
+						<li><a href="https://vm-01.nlvmug2019.local:5480" title="VAMI vCenter Appliance"target="_blank">VCSA VAMI</a></li>
+                        <li><a href="https://vm-04.nlvmug2019.local:5480" title="VAMI vRealize Orchestrator"target="_blank">Orchestrator VAMI</a></li>
+                    </ul>
+                </div>
+                <div class="info">
+                        <h4>vSphere hosts</h4>				
+                        <ul>
+                        <li><a href="https://vesxi-01.nlvmug2019.local"title="Web console ESXi host vESXi-01" target="_blank">vESXi-01</a></li>
+                        <li><a href="https://vesxi-01.nlvmug2019.local"title="Web console ESXi host vESXi-02" target="_blank">vESXi-02</a></li>
+                    </ul>
+					<h4>Other</h4>				
+					<ul>
+						<li><a href="http://opnsense.nlvmug2019.local" title="Open Sense Router" target="_blank">OPNsense</a></li>
+						<li><a href="http://opnsense.nlvmug2019.local:3000" title="NTopNG" target="_blank">NTopNG</a></li>
+					</ul>
+				</div>
+			</div>
+		</body>
+	</div>
+</html>
