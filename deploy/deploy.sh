@@ -16,7 +16,7 @@ docker run --rm -it \\
   -v ~/.ssh/id_rsa:/root/.ssh/id_rsa \\
   -v ~/.ssh/id_rsa.pub:/root/.ssh/id_rsa.pub \\
   -v $(pwd):/pwsh \\
-  \$docker_img pwsh "\\$\\@"
+  \$docker_img pwsh "$@"
 EOF
 
 chmod +x /usr/local/bin/pwcli
