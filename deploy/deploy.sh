@@ -4,7 +4,7 @@
 
 rm -f /usr/local/bin/pwcli
 
-cat > /usr/local/bin/pwcli << EOF
+cat > /usr/local/bin/pwcli << 'EOF'
 #!/usr/bin/env bash
 #
 #  A script wrapper for running the docker image pwcli interactively
