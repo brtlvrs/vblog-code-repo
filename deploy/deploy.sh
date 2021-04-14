@@ -2,6 +2,8 @@
 
 ## create pwcli wrapper to run the pwcli container interactively
 
+rm -f /usr/local/bin/pwcli
+
 cat > /usr/local/bin/pwcli << EOF
 #!/usr/bin/env bash
 #
