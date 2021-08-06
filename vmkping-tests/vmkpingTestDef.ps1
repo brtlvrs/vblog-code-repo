@@ -36,12 +36,24 @@
 
 #>
 @{
-    #-- vmkping from vmk0 to vcenter ip
+    #-- vmkping from vmk0 to vcenter ip (duplicate this table row for a second test definition)
     vmk0_vcsa=@{
         Name="vmk0 --> VCSA" #-- name test, used in displaying result
         Enabled=$true #-- [boolean] run this test if $true
         test=@{ #-- vmkping attributes, to list all attributes run $esxcli.network.diag.ping.createargs()
             host='192.168.1.1' #-- [string] target host
+            df = $true #-- [boolean] do not fragment, prevents breaking up of ICMP ping frame by network devices.
+            netstack = 'defaultTcpipStack' #-- ESXi networkstack used
+            size= 1500 #-- [bytes] framesize including TCP/IP header, the 28 bytes TCP/IP header is later being subtracted by the script.
+            ipv4=$true #-- [boolean] ICMP IP version
+            interface='vmk0' #-- [string] ESXi kernel port to send ICMP packets from
+            }
+    }
+    vmk0_gw=@{
+        Name="vmk0 --> gateway" #-- name test, used in displaying result
+        Enabled=$true #-- [boolean] run this test if $true
+        test=@{ #-- vmkping attributes, to list all attributes run $esxcli.network.diag.ping.createargs()
+            host='192.168.1.250' #-- [string] target host
             df = $true #-- [boolean] do not fragment, prevents breaking up of ICMP ping frame by network devices.
             netstack = 'defaultTcpipStack' #-- ESXi networkstack used
             size= 1500 #-- [bytes] framesize including TCP/IP header, the 28 bytes TCP/IP header is later being subtracted by the script.
